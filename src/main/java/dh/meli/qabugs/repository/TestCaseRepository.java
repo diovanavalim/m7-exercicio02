@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface TestCaseRepository extends CrudRepository<TestCase, Long> {
-    @Query(value = "SELECT * FROM test_case WHERE CONVERT(last_update, date) = ?1", nativeQuery = true)
+    @Query(value = "SELECT * FROM test_case WHERE DATE(last_update) = ?1", nativeQuery = true)
     List<TestCase> getTestCaseByLastUpdate(String lastUpdate);
 }

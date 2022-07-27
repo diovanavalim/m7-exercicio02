@@ -60,8 +60,8 @@ public class TestCaseController<T> {
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
-    @GetMapping("/testcase?lastUpdate")
-    public ResponseEntity<List<TestCaseDto>> getTestCaseByLastUpdate(@RequestParam String lastUpdate) {
+    @GetMapping("/testcase/last_update/{lastUpdate}")
+    public ResponseEntity<List<TestCaseDto>> getTestCaseByLastUpdate(@PathVariable String lastUpdate) {
         List<TestCase> testCaseList = testCaseService.getTestCaseByLastUpdate(lastUpdate);
 
         List<TestCaseDto> testCaseDtoList = new ArrayList<TestCaseDto>();
